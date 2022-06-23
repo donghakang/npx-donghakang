@@ -1,0 +1,35 @@
+{
+  "name": "npx-donghakang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "donghakang": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donghakang/npx-donghakang.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donghakang/npx-donghakang/issues"
+  },
+  "homepage": "https://github.com/donghakang/npx-donghakang#readme",
+  "dependencies": {
+    "boxen": "^7.0.0",
+    "chalk": "^4.1.2",
+    "react": "^18.2.0",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "eslint": "^8.18.0",
+    "lint-staged": "^13.0.2"
+  }
+}
