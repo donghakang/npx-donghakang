@@ -1,68 +1,12 @@
-#! /usr/bin/env node
-
-import boxen from "boxen";
-import chalk from "chalk";
-// const boxen = require("boxen");
-
-const options = {
-  padding: 7,
-  margin: 7,
-  borderStyle: "double",
-  float: "center",
-  borderColor: "#03a9f4",
-  backgroundColor: "black",
-};
-
-const data = {
-  name: chalk.white.bold("                      D O N G H A K A N G"),
-  intro: chalk.white(
-    "Hello, World👋🏻\nI am Frontend Developer who focus a lot on Users Experience.\nI am interested in Beautify of interaction and would love to work together!\nFeel free to contact me"
-  ),
-  work: chalk.white("FE Developer @Seoul Nation University Hospital"),
-  mail: chalk.white("dkang0602@gmail.com"),
-  github: chalk.white("https://github.com/donghakang"),
-  linkedin: chalk.white("www.linkedin.com/in/dkang0602"),
-  instagram: chalk.white("https://www.instagram.com/donghakang/"),
-  web: chalk.white("https://donghakang.github.io/"),
-
-  //   labelOpenSource: chalk.rgb(128, 255, 128).bold("Open Source:"),
-  labelWork: chalk.rgb(255, 0, 0).bold("       Work:"),
-  labelTwitter: chalk.rgb(51, 51, 255).bold("    Twitter:"),
-  labelGitHub: chalk.rgb(253, 245, 5).bold("     GitHub:"),
-  labelLinkedIn: chalk.rgb(0, 255, 255).bold("   LinkedIn:"),
-  labelYoutube: chalk.rgb(255, 25, 25).bold("    Youtube:"),
-  labelInstagram: chalk.rgb(153, 102, 204).bold("  Instagram:"),
-  labelMail: chalk.rgb(191, 255, 179).bold("       Mail:"),
-  labelMedium: chalk.rgb(102, 51, 0).bold("     Medium:"),
-  labelWeb: chalk.rgb(255, 136, 77).bold("        Web:"),
-  labelCard: chalk.rgb(240, 13, 240).bold("       Card:"),
-};
-
-// Aqui será a saída do nosso Cartão Pessoal em NPX:
-const newline = "\n";
-const heading = `${data.name}`;
-const working = `${data.labelWork}  ${data.work}`;
-const webing = `${data.labelWeb}  ${data.web}`;
-const mailing = `${data.labelMail}  ${data.mail}`;
-const githubing = `${data.labelGitHub}  ${data.github}`;
-const instagraming = `${data.labelInstagram}  ${data.instagram}`;
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`;
-const introduction = `${data.intro}`;
-
-// Aqui devemos colocar toda a nossa saída numa única variável para que possamos usar
-// o ‘boxen de maneira efetiva:
-const output = [
-  heading,
-  newline,
-  introduction,
-  newline,
-  working,
-  webing,
-  githubing,
-  mailing,
-  linkedining,
-  instagraming,
-  newline,
-].join(newline);
-
-console.log(chalk.green(boxen(output, options)));
+#!/usr/bin/env node
+var p=(z=0)=>($)=>`\x1B[${$+z}m`,v=(z=0)=>($)=>`\x1B[${38+z};5;${$}m`,d=(z=0)=>($,D,q)=>`\x1B[${38+z};2;${$};${D};${q}m`,X={modifier:{reset:[0,0],bold:[1,22],dim:[2,22],italic:[3,23],underline:[4,24],overline:[53,55],inverse:[7,27],hidden:[8,28],strikethrough:[9,29]},color:{black:[30,39],red:[31,39],green:[32,39],yellow:[33,39],blue:[34,39],magenta:[35,39],cyan:[36,39],white:[37,39],blackBright:[90,39],gray:[90,39],grey:[90,39],redBright:[91,39],greenBright:[92,39],yellowBright:[93,39],blueBright:[94,39],magentaBright:[95,39],cyanBright:[96,39],whiteBright:[97,39]},bgColor:{bgBlack:[40,49],bgRed:[41,49],bgGreen:[42,49],bgYellow:[43,49],bgBlue:[44,49],bgMagenta:[45,49],bgCyan:[46,49],bgWhite:[47,49],bgBlackBright:[100,49],bgGray:[100,49],bgGrey:[100,49],bgRedBright:[101,49],bgGreenBright:[102,49],bgYellowBright:[103,49],bgBlueBright:[104,49],bgMagentaBright:[105,49],bgCyanBright:[106,49],bgWhiteBright:[107,49]}},E0=Object.keys(X.modifier),H0=Object.keys(X.color),Q0=Object.keys(X.bgColor),A0=[...H0,...Q0];function U0(){let z=new Map;for(let[$,D]of Object.entries(X)){for(let[q,H]of Object.entries(D))X[q]={open:`\x1B[${H[0]}m`,close:`\x1B[${H[1]}m`},D[q]=X[q],z.set(H[0],H[1]);Object.defineProperty(X,$,{value:D,enumerable:!1})}return Object.defineProperty(X,"codes",{value:z,enumerable:!1}),X.color.close="\x1B[39m",X.bgColor.close="\x1B[49m",X.color.ansi=p(),X.color.ansi256=v(),X.color.ansi16m=d(),X.bgColor.ansi=p(10),X.bgColor.ansi256=v(10),X.bgColor.ansi16m=d(10),Object.defineProperties(X,{rgbToAnsi256:{value($,D,q){if($===D&&D===q){if($<8)return 16;if($>248)return 231;return Math.round(($-8)/247*24)+232}return 16+36*Math.round($/255*5)+6*Math.round(D/255*5)+Math.round(q/255*5)},enumerable:!1},hexToRgb:{value($){let D=/[a-f\d]{6}|[a-f\d]{3}/i.exec($.toString(16));if(!D)return[0,0,0];let[q]=D;if(q.length===3)q=[...q].map((U)=>U+U).join("");let H=Number.parseInt(q,16);return[H>>16&255,H>>8&255,H&255]},enumerable:!1},hexToAnsi256:{value:($)=>X.rgbToAnsi256(...X.hexToRgb($)),enumerable:!1},ansi256ToAnsi:{value($){if($<8)return 30+$;if($<16)return 90+($-8);let D,q,H;if($>=232)D=(($-232)*10+8)/255,q=D,H=D;else{$-=16;let G=$%36;D=Math.floor($/36)/5,q=Math.floor(G/6)/5,H=G%6/5}let U=Math.max(D,q,H)*2;if(U===0)return 30;let V=30+(Math.round(H)<<2|Math.round(q)<<1|Math.round(D));if(U===2)V+=60;return V},enumerable:!1},rgbToAnsi:{value:($,D,q)=>X.ansi256ToAnsi(X.rgbToAnsi256($,D,q)),enumerable:!1},hexToAnsi:{value:($)=>X.ansi256ToAnsi(X.hexToAnsi256($)),enumerable:!1}}),X}var V0=U0(),O=V0;import F from"node:process";import X0 from"node:os";import y from"node:tty";function K(z,$=globalThis.Deno?globalThis.Deno.args:F.argv){let D=z.startsWith("-")?"":z.length===1?"-":"--",q=$.indexOf(D+z),H=$.indexOf("--");return q!==-1&&(H===-1||q<H)}var{env:Z}=F,A;if(K("no-color")||K("no-colors")||K("color=false")||K("color=never"))A=0;else if(K("color")||K("colors")||K("color=true")||K("color=always"))A=1;function Z0(){if("FORCE_COLOR"in Z){if(Z.FORCE_COLOR==="true")return 1;if(Z.FORCE_COLOR==="false")return 0;return Z.FORCE_COLOR.length===0?1:Math.min(Number.parseInt(Z.FORCE_COLOR,10),3)}}function I0(z){if(z===0)return!1;return{level:z,hasBasic:!0,has256:z>=2,has16m:z>=3}}function J0(z,{streamIsTTY:$,sniffFlags:D=!0}={}){let q=Z0();if(q!==void 0)A=q;let H=D?A:q;if(H===0)return 0;if(D){if(K("color=16m")||K("color=full")||K("color=truecolor"))return 3;if(K("color=256"))return 2}if("TF_BUILD"in Z&&"AGENT_NAME"in Z)return 1;if(z&&!$&&H===void 0)return 0;let U=H||0;if(Z.TERM==="dumb")return U;if(F.platform==="win32"){let V=X0.release().split(".");if(Number(V[0])>=10&&Number(V[2])>=10586)return Number(V[2])>=14931?3:2;return 1}if("CI"in Z){if(["GITHUB_ACTIONS","GITEA_ACTIONS","CIRCLECI"].some((V)=>(V in Z)))return 3;if(["TRAVIS","APPVEYOR","GITLAB_CI","BUILDKITE","DRONE"].some((V)=>(V in Z))||Z.CI_NAME==="codeship")return 1;return U}if("TEAMCITY_VERSION"in Z)return/^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(Z.TEAMCITY_VERSION)?1:0;if(Z.COLORTERM==="truecolor")return 3;if(Z.TERM==="xterm-kitty")return 3;if(Z.TERM==="xterm-ghostty")return 3;if(Z.TERM==="wezterm")return 3;if("TERM_PROGRAM"in Z){let V=Number.parseInt((Z.TERM_PROGRAM_VERSION||"").split(".")[0],10);switch(Z.TERM_PROGRAM){case"iTerm.app":return V>=3?3:2;case"Apple_Terminal":return 2}}if(/-256(color)?$/i.test(Z.TERM))return 2;if(/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(Z.TERM))return 1;if("COLORTERM"in Z)return 1;return U}function g(z,$={}){let D=J0(z,{streamIsTTY:z&&z.isTTY,...$});return I0(D)}var K0={stdout:g({isTTY:y.isatty(1)}),stderr:g({isTTY:y.isatty(2)})},c=K0;function i(z,$,D){let q=z.indexOf($);if(q===-1)return z;let H=$.length,U=0,V="";do V+=z.slice(U,q)+$+D,U=q+H,q=z.indexOf($,U);while(q!==-1);return V+=z.slice(U),V}function n(z,$,D,q){let H=0,U="";do{let V=z[q-1]==="\r";U+=z.slice(H,V?q-1:q)+$+(V?`\r
+`:`
+`)+D,H=q+1,q=z.indexOf(`
+`,H)}while(q!==-1);return U+=z.slice(H),U}var{stdout:a,stderr:r}=c,f=Symbol("GENERATOR"),W=Symbol("STYLER"),M=Symbol("IS_EMPTY"),o=["ansi","ansi","ansi256","ansi16m"],Y=Object.create(null),O0=(z,$={})=>{if($.level&&!(Number.isInteger($.level)&&$.level>=0&&$.level<=3))throw Error("The `level` option should be an integer from 0 to 3");let D=a?a.level:0;z.level=$.level===void 0?D:$.level};var G0=(z)=>{let $=(...D)=>D.join(" ");return O0($,z),Object.setPrototypeOf($,T.prototype),$};function T(z){return G0(z)}Object.setPrototypeOf(T.prototype,Function.prototype);for(let[z,$]of Object.entries(O))Y[z]={get(){let D=L(this,S($.open,$.close,this[W]),this[M]);return Object.defineProperty(this,z,{value:D}),D}};Y.visible={get(){let z=L(this,this[W],!0);return Object.defineProperty(this,"visible",{value:z}),z}};var _=(z,$,D,...q)=>{if(z==="rgb"){if($==="ansi16m")return O[D].ansi16m(...q);if($==="ansi256")return O[D].ansi256(O.rgbToAnsi256(...q));return O[D].ansi(O.rgbToAnsi(...q))}if(z==="hex")return _("rgb",$,D,...O.hexToRgb(...q));return O[D][z](...q)},B0=["rgb","hex","ansi256"];for(let z of B0){Y[z]={get(){let{level:D}=this;return function(...q){let H=S(_(z,o[D],"color",...q),O.color.close,this[W]);return L(this,H,this[M])}}};let $="bg"+z[0].toUpperCase()+z.slice(1);Y[$]={get(){let{level:D}=this;return function(...q){let H=S(_(z,o[D],"bgColor",...q),O.bgColor.close,this[W]);return L(this,H,this[M])}}}}var j0=Object.defineProperties(()=>{},{...Y,level:{enumerable:!0,get(){return this[f].level},set(z){this[f].level=z}}}),S=(z,$,D)=>{let q,H;if(D===void 0)q=z,H=$;else q=D.openAll+z,H=$+D.closeAll;return{open:z,close:$,openAll:q,closeAll:H,parent:D}},L=(z,$,D)=>{let q=(...H)=>P0(q,H.length===1?""+H[0]:H.join(" "));return Object.setPrototypeOf(q,j0),q[f]=z,q[W]=$,q[M]=D,q},P0=(z,$)=>{if(z.level<=0||!$)return z[M]?"":$;let D=z[W];if(D===void 0)return $;let{openAll:q,closeAll:H}=D;if($.includes("\x1B"))while(D!==void 0)$=i($,D.close,D.open),D=D.parent;let U=$.indexOf(`
+`);if(U!==-1)$=n($,H,q,U);return q+$+H};Object.defineProperties(T.prototype,Y);var N0=T(),m0=T({level:r?r.level:0});var Q=N0;var t=["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"],l=[Q.cyan,Q.blue,Q.magenta,Q.red,Q.yellow,Q.green];function s(z=2000){return new Promise(($)=>{let D=0,q=setInterval(()=>{let H=t[D%t.length],U=l[D%l.length];process.stdout.write(`\r${U(`  ${H}  Loading donghakang's card...`)}`),D++},80);setTimeout(()=>{clearInterval(q),process.stdout.write("\r"+" ".repeat(50)+"\r"),$()},z)})}function C(z,$){let D=[],q=z*1.2;for(let H=0;H<12;H++){let U=[],V=[];for(let G=0;G<62;G++){let J=(G-31)/18,B=(H-6)/6,P=0;P+=Math.sin(Math.sqrt(J*J+B*B)*10-q*3),P+=Math.sin(J*8+q*2)*0.7,P+=Math.sin(B*6-q*1.7)*0.7;let q0=Math.atan2(B,J)+q*0.8,z0=Math.sqrt(J*J+B*B);P+=Math.sin(q0*4+z0*5)*0.6,P+=Math.sin((J+B)*6+q*1.3)*0.5,P+=Math.sin((J-B)*5-q*0.9)*0.5;let u=(P+4)/8,D0=Math.floor(u*17);U.push("        ..:,;+*?#@"[Math.max(0,Math.min(17,D0))]),V.push(Math.round(80+u*175))}D.push({chars:U,grays:V})}return D}var k=62;function w(z,$){return`\x1B]8;;${z}\x07${$||z}\x1B]8;;\x07`}function I(z){let $=0;for(let D of z){let q=D.codePointAt(0);if(q===8205)continue;if(q>=65024&&q<=65039)continue;if(q>=127995&&q<=127999)continue;if(q>=768&&q<=879)continue;if(q>=44032&&q<=55215||q>=4352&&q<=4607||q>=12288&&q<=40959||q>=63744&&q<=64255||q>=65072&&q<=65103||q>=127744&&q<=129791||q>=131072&&q<=195103)$+=2;else $+=1}return $}var R=66,x="       ",j=Q.hex("#cccccc");function W0(){return x+j("╔"+"═".repeat(R)+"╗")}function Y0(){return x+j("╚"+"═".repeat(R)+"╝")}function E(){return x+j("║")+" ".repeat(R)+j("║")}function e(z,$){let D=Math.max(0,R-4-$);return x+j("║")+"    "+z+" ".repeat(D)+j("║")}var w0=[{text:Q.white("안녕하세요 FE개발자 강동하입니다 \uD83D\uDC4B\uD83C\uDFFB"),vw:I("안녕하세요 FE개발자 강동하입니다 \uD83D\uDC4B\uD83C\uDFFB")},{text:Q.white("단순한 기능을 넘어 몰입감 있는 비주얼과"),vw:I("단순한 기능을 넘어 몰입감 있는 비주얼과")},{text:Q.white("매끄러운 인터렉션을 통해 사용자에게"),vw:I("매끄러운 인터렉션을 통해 사용자에게")},{text:Q.white("즐거운 경험을 선사하는 것에 관심이 많습니다"),vw:I("즐거운 경험을 선사하는 것에 관심이 많습니다")},{text:"",vw:0},{text:Q.white("Passionate about going beyond simple functionality"),vw:I("Passionate about going beyond simple functionality")},{text:Q.white("to deliver delightful user experiences through"),vw:I("to deliver delightful user experiences through")},{text:Q.white("immersive visuals and seamless interactions."),vw:I("immersive visuals and seamless interactions.")}],R0=[{label:Q.rgb(190,190,190).bold("      Work"),value:Q.white("Frontend Developer @ADENASOFT"),lvw:10,vvw:I("Frontend Developer @ADENASOFT")},{label:Q.rgb(180,180,180).bold("       Web"),value:Q.white(w("https://donghakang.xyz","https://donghakang.xyz")),lvw:10,vvw:I("https://donghakang.xyz")},{label:Q.rgb(170,170,170).bold("    GitHub"),value:Q.white(w("https://github.com/donghakang","https://github.com/donghakang")),lvw:10,vvw:I("https://github.com/donghakang")},{label:Q.rgb(160,160,160).bold("  LinkedIn"),value:Q.white(w("https://linkedin.com/in/dkang0602","https://linkedin.com/in/dkang0602")),lvw:10,vvw:I("https://linkedin.com/in/dkang0602")},{label:Q.rgb(150,150,150).bold(" Instagram"),value:Q.white(w("https://instagram.com/donghakang","https://instagram.com/donghakang")),lvw:10,vvw:I("https://instagram.com/donghakang")},{label:Q.rgb(140,140,140).bold("      Mail"),value:Q.white(w("mailto:dkang0602@gmail.com","dkang0602@gmail.com")),lvw:10,vvw:I("dkang0602@gmail.com")}],N=[];N.push(E());for(let z of w0)N.push(z.text===""?E():e(z.text,z.vw));N.push(E());for(let z of R0){let $=`${z.label}:  ${z.value}`,D=z.lvw+3+z.vvw;N.push(e($,D))}N.push(E());N.push(Y0());var M0=N.join(`
+`);function b(z){let $=[];$.push(W0()),$.push(E());let D=Math.floor((R-k)/2);for(let q of z){let H="";for(let V=0;V<q.chars.length;V++){let G=q.chars[V];if(G===" ")H+=" ";else{let J=q.grays[V];H+=Q.rgb(J,J,J)(G)}}let U=Math.max(0,R-D-k);$.push(x+j("║")+" ".repeat(D)+H+" ".repeat(U)+j("║"))}return $.push(M0),$.join(`
+`)}await s(2000);process.stdout.write("\x1B[?25l");var h=1,m=1,$0=b(C(h,m)),T0=$0.split(`
+`).length;process.stdout.write($0+`
+`);var x0=setInterval(()=>{h+=0.04,m+=0.02;let z=b(C(h,m));process.stdout.write(`\x1B[${T0}A`),process.stdout.write(z+`
+`)},80);process.on("SIGINT",()=>{clearInterval(x0),process.stdout.write(`\x1B[?25h
+`),process.exit(0)});

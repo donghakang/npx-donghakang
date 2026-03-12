@@ -1,35 +1,34 @@
 {
   "name": "npx-donghakang",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Dongha Kang's personal card via npx",
+  "main": "bin/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node src/index.js",
+    "build": "bun build src/index.js --outfile bin/index.js --target node --minify && printf '#!/usr/bin/env node\\n%s' \"$(cat bin/index.js)\" > bin/index.js && chmod +x bin/index.js",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
     "donghakang": "bin/index.js"
   },
+  "files": [
+    "bin/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/donghakang/npx-donghakang.git"
   },
-  "author": "",
+  "author": "Dongha Kang <dkang0602@gmail.com>",
+  "engines": {
+    "node": ">=18"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/donghakang/npx-donghakang/issues"
   },
   "homepage": "https://github.com/donghakang/npx-donghakang#readme",
-  "dependencies": {
-    "boxen": "^7.0.0",
-    "chalk": "^4.1.2",
-    "react": "^18.2.0",
-    "typescript": "^4.7.4"
-  },
   "devDependencies": {
-    "@types/react": "^18.0.14",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "eslint": "^8.18.0",
-    "lint-staged": "^13.0.2"
+    "chalk": "^5.6.2"
   }
 }
